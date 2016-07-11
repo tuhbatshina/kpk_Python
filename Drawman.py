@@ -1,11 +1,12 @@
 from turtle import Turtle
 t=Turtle()
 def init_drawman():
-    global t, x_current, y_current
+    global t, x_current, y_current, drawman_scale
     t.penup()
     x_current = 0
     y_current = 0
     t.goto(x_current, y_current)
+    drawman_scale = 10
 
 def test_drawman():
     """Тестирование работы чертежника
@@ -25,16 +26,13 @@ def pen_up():
     t.penup()
 
 def on_vector(dx, dy):
-    global t, x_current, y_current
-    x_current += dx
-    y_current += dy
-    t.goto(x_current, y_current)
+    to_point(x_current+dx, y_current+dy)
 
 def to_point(x, y):
-    global t, x_current, y_current
+    global t, x_current, y_current, drawman_scale
     x_current = x
     y_current = y
-    t.goto(x_current, y_current)
+    t.goto(drawman_scale*x_current, drawman_scale*y_current)
 
 init_drawman()
 if __name__ == ' _main_ ':
