@@ -24,7 +24,7 @@ def move_all_balls(event):
     передвигает все шарики на чуть-чуть
     """
     for obj in canvas.find_all():
-        dx = randint(-1,1)
+        dx = randint(-3,3)
         dy = randint(-1,1)
         canvas.move(obj, dx, dy)
 
